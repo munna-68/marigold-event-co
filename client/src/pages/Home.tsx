@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/withBase";
 /** Harbor Blueprint style: an asymmetrical dark editorial hero with precise operational signals. */
 import { ArrowRight, CalendarDays, Check, MapPin, PackageCheck, Sparkles } from "lucide-react";
 import { Link } from "wouter";
@@ -6,9 +7,9 @@ import SiteFooter from "@/components/SiteFooter";
 import { inventory } from "@/lib/catalog";
 
 const categoryCards = [
-  { label: "Tents", detail: "Cover, light, and a little room to breathe.", image: "/images/marigold-hero_0f3301e5.jpg", href: "/browse?category=Tents" },
-  { label: "Tables + Chairs", detail: "The pieces that hold the whole table together.", image: "/images/marigold-table-setting_660fd7a9.jpg", href: "/browse?category=Tables%20%26%20Chairs" },
-  { label: "Play + Extras", detail: "The memorable parts, thoughtfully handled.", image: "/images/marigold-bounce-house_c762631c.jpg", href: "/browse?category=Inflatables" }
+  { label: "Tents", detail: "Cover, light, and a little room to breathe.", image: withBase("/images/marigold-hero_0f3301e5.jpg"), href: "/browse?category=Tents" },
+  { label: "Tables + Chairs", detail: "The pieces that hold the whole table together.", image: withBase("/images/marigold-table-setting_660fd7a9.jpg"), href: "/browse?category=Tables%20%26%20Chairs" },
+  { label: "Play + Extras", detail: "The memorable parts, thoughtfully handled.", image: withBase("/images/marigold-bounce-house_c762631c.jpg"), href: "/browse?category=Inflatables" }
 ];
 
 export default function Home() {

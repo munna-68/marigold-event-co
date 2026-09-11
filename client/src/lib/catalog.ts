@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/withBase";
 export type Category = "Tents" | "Tables & Chairs" | "Inflatables" | "Linens" | "Extras";
 
 export type RentalItem = {
@@ -28,7 +29,7 @@ export const inventory: RentalItem[] = [
     price: 760,
     deposit: 225,
     capacity: "Up to 48 seated",
-    image: "/images/marigold-hero_0f3301e5.jpg",
+    image: withBase("/images/marigold-hero_0f3301e5.jpg"),
     featured: true,
     bookedDates: ["2026-08-29", "2026-09-05", "2026-09-12", "2026-09-19"],
     included: ["Tent installation", "Anchoring or weighted base", "Weather sidewall consultation"],
@@ -43,7 +44,7 @@ export const inventory: RentalItem[] = [
     price: 425,
     deposit: 150,
     capacity: "Up to 32 seated",
-    image: "/images/marigold-frame-tent_80199d06.jpg",
+    image: withBase("/images/marigold-frame-tent_80199d06.jpg"),
     bookedDates: ["2026-08-24", "2026-08-30", "2026-09-06"],
     included: ["Tent installation", "Weighted-base option", "Basic rain plan"],
     setupNote: "A 25 × 25 ft clear setup area is required."
@@ -57,7 +58,7 @@ export const inventory: RentalItem[] = [
     price: 68,
     deposit: 25,
     capacity: "Seats 8–10",
-    image: "/images/marigold-table-setting_660fd7a9.jpg",
+    image: withBase("/images/marigold-table-setting_660fd7a9.jpg"),
     featured: true,
     bookedDates: ["2026-08-30", "2026-09-12"],
     included: ["Wiped and event-ready surface", "Standard placement"],
@@ -72,7 +73,7 @@ export const inventory: RentalItem[] = [
     price: 7,
     deposit: 3,
     capacity: "Single chair",
-    image: "/images/marigold-seating_42b840e5.jpg",
+    image: withBase("/images/marigold-seating_42b840e5.jpg"),
     bookedDates: ["2026-08-23", "2026-09-05", "2026-09-19"],
     included: ["Cleaned event-ready chair", "Standard placement"],
     setupNote: "Available in a quantity of 120."
@@ -86,7 +87,7 @@ export const inventory: RentalItem[] = [
     price: 9,
     deposit: 4,
     capacity: "Single chair",
-    image: "/images/marigold-seating_42b840e5.jpg",
+    image: withBase("/images/marigold-seating_42b840e5.jpg"),
     bookedDates: ["2026-08-29", "2026-09-12"],
     included: ["Cleaned event-ready chair", "Standard placement"],
     setupNote: "Available in a quantity of 80."
@@ -100,7 +101,7 @@ export const inventory: RentalItem[] = [
     price: 295,
     deposit: 125,
     capacity: "Ages 3–10",
-    image: "/images/marigold-bounce-house_c762631c.jpg",
+    image: withBase("/images/marigold-bounce-house_c762631c.jpg"),
     featured: true,
     bookedDates: ["2026-08-22", "2026-08-29", "2026-09-13", "2026-09-20"],
     included: ["Inflatable blower", "Safety mat", "Stakes or weights"],
@@ -115,7 +116,7 @@ export const inventory: RentalItem[] = [
     price: 430,
     deposit: 175,
     capacity: "Ages 5–12",
-    image: "/images/marigold-bounce-house_c762631c.jpg",
+    image: withBase("/images/marigold-bounce-house_c762631c.jpg"),
     bookedDates: ["2026-08-23", "2026-09-06", "2026-09-19"],
     included: ["Inflatable blower", "Safety mat", "Stakes or weights"],
     setupNote: "Requires a level 15 × 35 ft outdoor area and nearby outlet."
@@ -129,7 +130,7 @@ export const inventory: RentalItem[] = [
     price: 22,
     deposit: 10,
     capacity: "90 × 132 in",
-    image: "/images/marigold-table-setting_660fd7a9.jpg",
+    image: withBase("/images/marigold-table-setting_660fd7a9.jpg"),
     bookedDates: ["2026-09-05", "2026-09-12"],
     included: ["Freshly laundered linen", "Protective transport bag"],
     setupNote: "Available in a quantity of 40."
@@ -143,7 +144,7 @@ export const inventory: RentalItem[] = [
     price: 12,
     deposit: 6,
     capacity: "14 × 108 in",
-    image: "/images/marigold-table-setting_660fd7a9.jpg",
+    image: withBase("/images/marigold-table-setting_660fd7a9.jpg"),
     bookedDates: ["2026-08-30", "2026-09-19"],
     included: ["Freshly laundered runner", "Protective transport bag"],
     setupNote: "Available in a quantity of 30."
@@ -157,7 +158,7 @@ export const inventory: RentalItem[] = [
     price: 520,
     deposit: 200,
     capacity: "3-hour base rental",
-    image: "/images/marigold-photo-booth_12d81f3a.jpg",
+    image: withBase("/images/marigold-photo-booth_12d81f3a.jpg"),
     featured: true,
     bookedDates: ["2026-08-29", "2026-09-12", "2026-09-26"],
     included: ["Backdrop", "Unlimited prints", "Digital gallery link"],
@@ -172,7 +173,7 @@ export const inventory: RentalItem[] = [
     price: 175,
     deposit: 75,
     capacity: "100 ft strand",
-    image: "/images/marigold-extras_ba359788.jpg",
+    image: withBase("/images/marigold-extras_ba359788.jpg"),
     bookedDates: ["2026-09-05", "2026-09-19"],
     included: ["One 100 ft strand", "Professional installation", "Power-cable planning"],
     setupNote: "Add multiple strands for broader coverage."
@@ -186,7 +187,7 @@ export const inventory: RentalItem[] = [
     price: 85,
     deposit: 65,
     capacity: "Propane included",
-    image: "/images/marigold-extras_ba359788.jpg",
+    image: withBase("/images/marigold-extras_ba359788.jpg"),
     bookedDates: ["2026-08-29", "2026-09-05"],
     included: ["Full propane tank", "Safety check", "Basic positioning"],
     setupNote: "Available in a quantity of 10."

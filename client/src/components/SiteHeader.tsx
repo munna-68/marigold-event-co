@@ -1,3 +1,4 @@
+import { withBase } from "@/lib/withBase";
 /** Harbor Blueprint style: operational navy rail, sparse gold signals, and left-aligned editorial hierarchy. */
 import { Link, useLocation } from "wouter";
 import { Menu, ShoppingBag, X } from "lucide-react";
@@ -19,7 +20,7 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="site-header__inner">
         <Link href="/" className="brand" aria-label="Marigold Event Co. home">
-          <img src="/images/marigold-mark_a8e48b51.png" alt="" className="brand__mark" />
+          <img src={withBase("/images/marigold-mark_a8e48b51.png")} alt="" className="brand__mark" />
           <span className="brand__type"><strong>Marigold<span className="brand__signal" aria-hidden="true" /></strong><small>Event Co.</small></span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
