@@ -12,6 +12,7 @@ import Browse from "./pages/Browse";
 import RentalDetail from "./pages/RentalDetail";
 import QuoteBuilder from "./pages/QuoteBuilder";
 import BookingConfirmation from "./pages/BookingConfirmation";
+import Plan from "./pages/Plan";
 import About from "./pages/About";
 
 const routerBase = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -21,6 +22,7 @@ function AppRoutes() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/plan"} component={Plan} />
       <Route path={"/browse"} component={Browse} />
       <Route path={"/rentals/:id"} component={RentalDetail} />
       <Route path={"/quote"} component={QuoteBuilder} />
