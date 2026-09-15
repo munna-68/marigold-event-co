@@ -33,7 +33,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <section className="hero">
-          <div className="hero__image" aria-hidden="true" data-parallax="0.16" />
+          <div className="hero__image" aria-hidden="true" data-parallax="0.16"><img src={withBase("/images/marigold-hero_0f3301e5.jpg")} alt="" /></div>
           <div className="hero__wash" aria-hidden="true" />
           <div className="hero__content">
             <p className="eyebrow eyebrow--gold" data-reveal="up" style={delay(0)}><span className="eyebrow-dot" /> EVENT RENTALS · LINDEN METRO</p>
@@ -51,7 +51,7 @@ export default function Home() {
               <Link href="/about" className="text-action">How the booking works <ArrowRight size={16} /></Link>
             </div>
           </div>
-          <div className="hero__availability-card" data-reveal="left" style={delay(700)}>
+          <div className="hero__availability-card" data-reveal="up" style={delay(700)}>
             <div className="availability-stamp"><span>01</span><p>One practical<br />starting point</p></div>
             <div><p className="card-label">LIVE INVENTORY</p><p className="availability-title">Every item has<br />its own calendar.</p></div>
             <Link href="/browse" className="round-arrow" aria-label="See availability"><ArrowRight size={18} /></Link>

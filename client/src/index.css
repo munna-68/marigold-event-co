@@ -131,7 +131,8 @@
   .button--full { width: 100%; }
 
   .hero { position: relative; overflow: hidden; min-height: 675px; padding: 105px 4.5vw 80px; color: white; isolation: isolate; display: flex; align-items: center; }
-  .hero__image { position: absolute; inset: 0; z-index: -2; background-image: url('/marigold-event-co/images/marigold-hero_0f3301e5.jpg'); background-size: cover; background-position: center; }
+  .hero__image { position: absolute; inset: 0; z-index: -2; }
+  .hero__image img { width: 100%; height: 100%; object-fit: cover; }
   .hero__wash { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(6,24,39,.96) 0%, rgba(8,29,46,.83) 35%, rgba(8,29,46,.22) 65%, rgba(8,29,46,.1) 100%); }
   .hero__content { position: relative; max-width: 650px; }
   .hero h1 { margin-top: 18px; max-width: 620px; font-size: clamp(54px, 6.1vw, 88px); line-height: .94; }
@@ -368,6 +369,10 @@
   .to-top { position: fixed; z-index: 55; right: clamp(14px, 3vw, 30px); bottom: calc(clamp(14px, 3vw, 30px) + env(safe-area-inset-bottom)); display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 15px; color: var(--ink); background: rgba(255,255,255,.95); border: 1px solid rgba(16,41,64,.14); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; box-shadow: 0 18px 34px -24px rgba(16,41,64,.7); backdrop-filter: blur(10px); opacity: 0; visibility: hidden; translate: 0 10px; transition: opacity .3s var(--ease-out), translate .3s var(--ease-out), visibility .3s; }
   html.has-scrolled .to-top { opacity: 1; visibility: visible; translate: none; }
 
+  .site-header__inner { transition: min-height .3s var(--ease-out); }
+  html.has-scrolled .site-header__inner { min-height: 62px; }
+  html.has-scrolled .site-header { box-shadow: 0 16px 34px -28px rgba(16,41,64,.9); }
+
   .marquee { overflow: hidden; background: #fafdfe; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .marquee__track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
   .marquee__group { display: flex; align-items: center; gap: 46px; padding: 15px 23px; }
@@ -467,6 +472,8 @@
 
   .plan-sticky { display: none; }
 
+  #contact { scroll-margin-top: 92px; }
+
   /* ── 404 ───────────────────────────────────────────────── */
   .not-found-page .not-found { display: grid; place-items: center; min-height: 60vh; padding: 96px 4.5vw 120px; }
   .not-found__card { max-width: 540px; padding: 46px 40px; text-align: center; background: white; border: 1px solid var(--line); }
@@ -485,7 +492,7 @@
     .to-top { transition: none !important; }
   }
   @media (max-width: 900px) {
-    html.has-scrolled .site-header__inner { min-height: 60px; }
+    html.has-scrolled .site-header__inner { min-height: 56px; }
     .desktop-nav { display: none; }.mobile-menu-toggle { display: grid; place-items: center; }.mobile-nav { display: grid; padding: 4px 4.5vw 14px; border-top: 1px solid var(--line); background: var(--fog); }.mobile-nav a { padding: 12px 0; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); font-weight: 600; font-size: 13px; }
     .site-header__inner { min-height: 69px; }.hero { min-height: 665px; }.hero__availability-card { right: 4.5vw; }.service-strip { grid-template-columns: 1fr; gap: 18px; }.service-strip div { padding: 0; }.service-strip div + div { padding-top: 18px; border-top: 1px solid var(--line); border-left: 0; }.category-rail { grid-template-columns: 1fr 1fr; }.category-card:first-child { grid-column: span 2; min-height: 375px; }.section--spotlight, .process-band, .catalog-layout, .detail-grid, .quote-layout, .confirmation-layout, .standards-section { grid-template-columns: 1fr; }.process-steps { grid-template-columns: repeat(3,1fr); }.footer-grid { grid-template-columns: 1fr 1fr; }.footer-links { align-content: start; }.detail-info-card { display: none; }.add-panel { order: 3; }.quote-summary { position: static; }.catalog-intro, .quote-heading, .about-hero { grid-template-columns: 1fr; gap: 22px; }.catalog-intro, .quote-heading, .about-hero { padding-bottom: 52px; }.about-image-band { grid-template-columns: 1fr; }.about-image-band img { height: 320px; }.about-image-band > div { padding: 55px 7vw; }.contact-panel { margin-left: 4.5vw; margin-right: 4.5vw; }.detail-hero { grid-template-columns: 1fr; }.detail-hero__image { min-height: 330px; }.inventory-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   }
@@ -532,8 +539,10 @@
     .plan-sticky .button { flex: 0 0 auto; min-height: 46px; }
     .plan-page .site-footer { padding-bottom: calc(22px + 74px); }
 
-    /* The day cells scale down only as far as 320px demands, then hold at the 44px minimum. */
-    .marigold-calendar { --cell-size: min(44px, 12vw) !important; }
+    /* The calendar is the widest thing in the availability panel, so its cell size
+       derives from the space actually left over: 80px covers the page, panel and
+       picker padding. 44px is reached from roughly a 390px viewport upward. */
+    .marigold-calendar { --cell-size: min(44px, calc((100vw - 80px) / 7)) !important; }
 
     .brand { min-height: 44px; }
     .search-box { min-height: 48px; }
