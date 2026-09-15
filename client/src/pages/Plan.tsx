@@ -40,7 +40,10 @@ export default function Plan() {
   const live = useMemo(() => bookedDateSummary(45), []);
 
   const answers: PlannerAnswers | null = occasion && guests && setting ? { occasion, guests, setting, extras } : null;
-  const recommendation = useMemo(() => (answers && built ? recommend(answers) : []), [answers, built]);
+  const recommendation = useMemo(
+    () => (built && occasion && guests && setting ? recommend({ occasion, guests, setting, extras }) : []),
+    [built, occasion, guests, setting, extras]
+  );
   const totals = useMemo(() => recommendationTotals(recommendation), [recommendation]);
 
   const answered = [occasion, guests, setting].filter(Boolean).length;

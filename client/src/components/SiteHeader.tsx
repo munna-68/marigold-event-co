@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRental } from "@/contexts/RentalContext";
 
 const navItems = [
+  { href: "/plan", label: "Plan an event" },
   { href: "/browse", label: "Inventory" },
   { href: "/about", label: "How it works" },
   { href: "/about#contact", label: "Contact" }
