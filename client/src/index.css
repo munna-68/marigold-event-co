@@ -459,4 +459,76 @@
   @media (max-width: 600px) {
     .site-header__inner { padding: 0 20px; }.brand__mark { width: 36px; height: 36px; }.brand__type { font-size: 18px; }.quote-chip span { display: none; }.hero { min-height: 650px; padding: 75px 20px 40px; align-items: start; }.hero__wash { background: linear-gradient(180deg, rgba(6,24,39,.93), rgba(8,29,46,.54) 68%, rgba(8,29,46,.86)); }.hero h1 { font-size: clamp(49px,15vw,65px); }.hero__lede { font-size: 14px; }.hero__actions { flex-wrap: wrap; gap: 19px; }.hero__availability-card { right: 20px; bottom: 40px; width: 245px; }.hero__scroll-note { display: none; }.service-strip, .section, .catalog-page, .quote-page main, .confirmation-page main, .detail-back, .detail-hero, .detail-grid, .empty-quote, .about-hero, .standards-section { padding-left: 20px; padding-right: 20px; }.section { padding-top: 75px; padding-bottom: 75px; }.section-heading--split { grid-template-columns: 1fr; gap: 20px; }.section-heading h2 { font-size: 43px; }.category-rail { grid-template-columns: 1fr; margin-top: 35px; }.category-card, .category-card:first-child { grid-column: auto; min-height: 330px; }.section--spotlight { gap: 45px; }.spotlight-row { grid-template-columns: 28px 60px 1fr; gap: 10px; }.spotlight-row img { width: 60px; height: 60px; }.spotlight-row h3 { font-size: 23px; }.spotlight-row__price { display: none; }.process-band { padding-top: 75px; padding-bottom: 75px; }.process-steps { grid-template-columns: 1fr; gap: 27px; }.process-steps h3 { margin-top: 14px; }.closing-cta { padding: 65px 20px; align-items: start; flex-direction: column; }.footer-grid { grid-template-columns: 1fr; gap: 33px; }.footer-bottom { align-items: start; flex-direction: column; gap: 6px; }.catalog-intro h1, .quote-heading h1, .confirmation-heading h1, .about-hero h1 { font-size: 56px; }.catalog-layout { gap: 25px; }.catalog-rail { padding-top: 0; }.category-filter { grid-template-columns: 1fr 1fr; gap: 0 17px; }.inventory-grid { grid-template-columns: 1fr; }.results-toolbar { align-items: start; flex-direction: column; gap: 14px; }.search-box { width: 100%; }.detail-back { padding-top: 19px; padding-bottom: 19px; }.detail-hero { padding-top: 30px; padding-bottom: 35px; }.detail-hero__image { min-height: 270px; }.detail-hero__summary h1 { font-size: 52px; }.detail-grid { padding-bottom: 70px; }.availability-panel { padding: 17px; }.availability-panel__header { display: block; }.availability-key { margin-top: 11px; }.quote-line { grid-template-columns: 80px 1fr; gap: 12px; }.quote-line img { width: 80px; height: 95px; }.quote-line__controls { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; text-align: left; }.quantity-control--small { margin: 0; border-bottom: 0; padding: 0; }.quote-line h2 { font-size: 25px; }.quote-summary { padding: 22px; }.form-grid { grid-template-columns: 1fr; }.booking-form section { padding: 20px; }.confirmation-layout { margin-top: 36px; }.review-sheet { padding: 20px; }.request-sent { padding: 75px 20px; }.about-image-band img { height: 260px; }.standard-list { grid-template-columns: 1fr; gap: 30px; }.contact-panel { flex-direction: column; align-items: start; padding: 38px 25px; margin-bottom: 72px; }.price-cluster { gap: 20px; }.detail-info-card { display: block; }.footer-route { margin: 0 20px; }.site-footer { padding-left: 20px; padding-right: 20px; }
   }
+
+  /* ── Mobile rework ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    html.menu-open { overflow: hidden; }
+
+    .site-header { position: sticky; top: 0; }
+    .mobile-menu-toggle { width: 44px; height: 44px; margin-right: -8px; padding: 0; border-radius: 3px; }
+    .quote-chip { min-height: 44px; padding: 0 13px; }
+    .mobile-nav { position: absolute; inset: 100% 0 auto; padding: 6px 4.5vw calc(16px + env(safe-area-inset-bottom)); background: #f7fbfc; border-top: 1px solid var(--line); box-shadow: 0 30px 55px -34px rgba(16,41,64,.85); }
+    .mobile-nav a { display: flex; align-items: center; min-height: 54px; padding: 0 2px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); font-weight: 600; font-size: 15px; }
+    .mobile-nav__scrim { position: fixed; inset: 0; z-index: -1; background: rgba(6,24,39,.45); }
+
+    /* Mobile reading order: the date decision, then the quote action, then the reference card. */
+    .detail-grid > .availability-panel { order: 1; }
+    .detail-grid > .add-panel { order: 2; }
+    .detail-grid > .detail-info-card { order: 3; }
+
+    /* Hoist the recap above the submit button so the CTA is never a blind tap. */
+    .confirmation-layout { gap: 16px; }
+    .booking-form { display: contents; }
+    .booking-form > section:nth-of-type(1) { order: 1; }
+    .booking-form > section:nth-of-type(2) { order: 2; }
+    .confirmation-layout > .review-sheet { order: 3; }
+    .booking-form > .button { order: 4; }
+    .booking-form > .form-legal { order: 5; }
+
+    .plan-page__main { padding: 64px 4.5vw 120px; }
+    .plan-hero { grid-template-columns: 1fr; gap: 22px; padding-bottom: 40px; }
+    .plan-hero h1 { font-size: clamp(42px, 12vw, 56px); }
+    .plan-layout { grid-template-columns: 1fr; gap: 28px; }
+    .plan-summary { position: static; }
+    .plan-result__head { grid-template-columns: 1fr; gap: 16px; }
+    .bundle-rail { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .plan-sticky { position: fixed; inset: auto 0 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 11px 4.5vw calc(11px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.97); border-top: 1px solid var(--line); box-shadow: 0 -20px 36px -28px rgba(16,41,64,.9); backdrop-filter: blur(12px); }
+    .plan-sticky__info { display: grid; gap: 3px; min-width: 0; }
+    .plan-sticky__info b { overflow: hidden; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+    .plan-sticky__info small { color: var(--muted-ink); font-size: 10px; }
+    .plan-sticky .button { flex: 0 0 auto; min-height: 46px; }
+    .plan-page .site-footer { padding-bottom: calc(22px + 74px); }
+
+    /* The day cells scale down only as far as 320px demands, then hold at the 44px minimum. */
+    .marigold-calendar { --cell-size: min(44px, 12vw) !important; }
+
+    .search-box { min-height: 44px; }
+    .filter-button { min-height: 44px; }
+    .round-arrow { width: 44px; height: 44px; }
+    .quantity-control button { width: 44px; height: 44px; }
+    .remove-button { min-height: 44px; }
+    .footer-links a, .contact-panel__links > a:not(.button), .text-action, .detail-back a, .view-quote-link { min-height: 44px; }
+  }
+
+  @media (max-width: 640px) {
+    /* The availability card leaves the hero photograph and joins the flow, so it stops covering the CTAs. */
+    .hero { flex-direction: column; align-items: stretch; }
+    .hero__content { order: 1; }
+    .hero__availability-card { position: static; order: 2; width: 100%; margin-top: 30px; }
+    .hero__scroll-note { display: none; }
+
+    .search-box input, .zip-field input, .booking-form input, .booking-form textarea { font-size: 16px; }
+
+    .plan-options, .plan-options--compact { grid-template-columns: 1fr; }
+    .plan-options--compact .plan-option { min-height: 64px; }
+    .plan-quiz, .plan-result { padding: 20px; }
+    .plan-nav { flex-direction: column-reverse; }
+    .plan-nav .button { width: 100%; }
+    .plan-result__list li { grid-template-columns: 62px 1fr; gap: 14px; }
+    .plan-result__list img { width: 62px; height: 58px; }
+    .plan-result__meta { grid-column: 2; justify-items: start; }
+    .bundle-rail { grid-template-columns: 1fr; }
+    .plan-cta { padding: 34px 20px; }
+    .plan-cta__links { gap: 16px; }
+  }
 }

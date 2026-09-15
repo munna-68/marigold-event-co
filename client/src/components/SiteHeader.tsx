@@ -2,7 +2,7 @@ import { withBase } from "@/lib/withBase";
 /** Harbor Blueprint style: operational navy rail, sparse gold signals, and left-aligned editorial hierarchy. */
 import { Link, useLocation } from "wouter";
 import { Menu, ShoppingBag, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRental } from "@/contexts/RentalContext";
 
 const navItems = [
@@ -16,6 +16,34 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
   const { itemCount } = useRental();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
+
+  /* A route change always closes the panel, including back/forward navigation. */
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    if (!open) return;
+    const root = document.documentElement;
+    root.classList.add("menu-open");
+
+    const firstLink = panelRef.current?.querySelector<HTMLElement>("a");
+    firstLink?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      toggleRef.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      root.classList.remove("menu-open");
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
 
   return (
     <header className="site-header">
@@ -33,12 +61,20 @@ export default function SiteHeader() {
             <span>Quote</span>
             <b>{itemCount}</b>
           </Link>
-          <button className="mobile-menu-toggle" onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open}>
+          <button
+            ref={toggleRef}
+            className="mobile-menu-toggle"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle navigation"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+          >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
-      {open && <nav className="mobile-nav" aria-label="Mobile navigation">
+      {open && <div className="mobile-nav__scrim" onClick={() => setOpen(false)} aria-hidden="true" />}
+      {open && <nav className="mobile-nav" id="mobile-navigation" ref={panelRef} aria-label="Mobile navigation">
         {navItems.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}
         <Link href="/quote" onClick={() => setOpen(false)}>Your quote · {itemCount} items</Link>
       </nav>}
