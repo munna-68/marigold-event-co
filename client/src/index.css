@@ -538,6 +538,9 @@
     .plan-sticky__info small { color: var(--muted-ink); font-size: 10px; }
     .plan-sticky .button { flex: 0 0 auto; min-height: 46px; }
     .plan-page .site-footer { padding-bottom: calc(22px + 74px); }
+    /* Keep the back-to-top control clear of the sticky action bar. The control
+       lives outside the app shell, so the page has to be matched from the root. */
+    html:has(.plan-page) .to-top { bottom: calc(86px + env(safe-area-inset-bottom)); }
 
     /* The calendar is the widest thing in the availability panel, so its cell size
        derives from the space actually left over: 80px covers the page, panel and
