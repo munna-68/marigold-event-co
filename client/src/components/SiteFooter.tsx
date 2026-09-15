@@ -1,5 +1,6 @@
 /** Harbor Blueprint style: disciplined service footer with route-line details and clear next steps. */
 import { Link } from "wouter";
+import type { CSSProperties } from "react";
 import { ArrowUpRight, MapPin, Phone } from "lucide-react";
 
 export default function SiteFooter() {
@@ -7,16 +8,16 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-route" aria-hidden="true"><span /></div>
       <div className="footer-grid">
-        <div>
+        <div data-reveal="up">
           <p className="eyebrow eyebrow--gold">MARIGOLD EVENT CO.</p>
           <h2>Good gatherings,<br />well supplied.</h2>
           <p className="footer-lede">Tents, tables, celebration details, and a booking process that makes planning feel lighter.</p>
         </div>
-        <div className="footer-info">
+        <div className="footer-info" data-reveal="up" style={{ "--delay": "90ms" } as CSSProperties}>
           <div><p className="footer-label">Service area</p><p><MapPin size={15} /> Greater Linden metro · within 50 mi</p></div>
           <div><p className="footer-label">Event line</p><p><Phone size={15} /> (555) 014-2290</p></div>
         </div>
-        <div className="footer-links">
+        <div className="footer-links" data-reveal="up" style={{ "--delay": "180ms" } as CSSProperties}>
           <Link href="/browse">Browse inventory <ArrowUpRight size={14} /></Link>
           <Link href="/quote">Build a quote <ArrowUpRight size={14} /></Link>
           <Link href="/about#contact">Ask a question <ArrowUpRight size={14} /></Link>

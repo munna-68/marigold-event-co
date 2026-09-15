@@ -211,6 +211,11 @@ export function deliveryForZip(zip: string): { fee: number; label: string; valid
   return { fee: 135, label: "Estimated 35–50 miles", valid: true };
 }
 
+/** Local calendar key. Never derived from toISOString(), which shifts the day. */
+export function dayKey(date: Date) {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
 export function isAvailable(item: RentalItem, date: Date | undefined) {
   if (!date) return true;
   const dateKey = date.toISOString().slice(0, 10);

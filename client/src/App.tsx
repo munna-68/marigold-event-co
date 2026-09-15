@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import MotionLayer from "./components/MotionLayer";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { RentalProvider } from "./contexts/RentalContext";
 import Home from "./pages/Home";
@@ -47,6 +48,7 @@ function App() {
         <RentalProvider>
           <TooltipProvider>
             <Toaster />
+            <MotionLayer />
             <WouterRouter base={routerBase}><AppRoutes /></WouterRouter>
           </TooltipProvider>
         </RentalProvider>
