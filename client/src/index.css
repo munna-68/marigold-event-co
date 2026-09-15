@@ -555,7 +555,7 @@
     .round-arrow { width: 44px; height: 44px; }
     .quantity-control button { width: 44px; height: 44px; }
     .remove-button { min-height: 44px; }
-    .footer-links a, .contact-panel__links > a:not(.button), .text-action, .detail-back a, .view-quote-link { min-height: 44px; }
+    .footer-links a, .contact-panel__links > a:not(.button), .text-action, .detail-back a, .view-quote-link, .confirmation-heading > a { min-height: 44px; }
   }
 
   @media (max-width: 640px) {
