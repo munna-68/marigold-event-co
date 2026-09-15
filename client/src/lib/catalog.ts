@@ -218,8 +218,7 @@ export function dayKey(date: Date) {
 
 export function isAvailable(item: RentalItem, date: Date | undefined) {
   if (!date) return true;
-  const dateKey = date.toISOString().slice(0, 10);
-  return !item.bookedDates.includes(dateKey);
+  return !item.bookedDates.includes(dayKey(date));
 }
 
 export function formatMoney(amount: number) {
